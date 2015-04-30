@@ -1,6 +1,7 @@
 // _______________________
 // what need to do?
-//try change. what is done?
+// try change. what is done?
+// it's work. changing is highlighted by green in commits
 // _______________________
 // translit=vozmozhnie oshibki ili ih ispravlenie
 // clear English = real comment to understand how program work
@@ -14,22 +15,24 @@
 
 using namespace std;
 
-int H, T, F; 
-float h, t, f;     //step by r, t, fi
+int H, T, F;
+float h, t, f;					// step by r, t, fi
 enum WherePoint
 { inside, outside };
 float analit(float x, float f, float y = 1)
 {
 	WherePoint flag;
-	flag = (x < 0 || x > 1 || f < 0 || f > 3.14/2 || y < 0 || y > 1) ? outside : inside;
+	flag = (x < 0 || x > 1 || f < 0 || f > 3.14 / 2 || y < 0 || y > 1) ? outside : inside;
 	switch (flag)
 	{
 	case inside:
 		// cout << "belowLC" << endl;
-		return ();	// solution 
+		return (x * cos(f) * sqrt(5 - 4 * y));
+		// solution 
 		break;
 	default:
-		cout << "INCORRECT! point x=" << x << "  t=" << y << "  is not in [0,1]×[0,1]" << endl;
+		cout << "INCORRECT! point x=" << x << "  t=" << y << "fi=" << f << 
+			"  is not in [0,1]×[0,1]" << endl;
 		throw 0;
 		return -10;				// all solution >=-2
 		break;
@@ -52,17 +55,15 @@ int main()
 	h = 1. / H;
 	float px, py;
 	/* { cout << "enter the point x="; cin >> px; cout << " y="; cin >> py;
-	   cout << endl; float mindSolution = analit(px, py); // sled 
-	   if
+	   cout << endl; float mindSolution = analit(px, py); // sled if
 	   (mindSolution == -10) { cout << "error. аналитическое
 	   решение не может быть найдено... конец
-	   программы" << endl; 
-	    return 1; } else { cout <<
-	   "mindSolution=" << mindSolution << endl; }
+	   программы" << endl; return 1; } else { cout << "mindSolution=" 
+	   << mindSolution << endl; }
 
 	   } */
 	vector < float >mindSolutionAtT(H + 1);
-	 for (int i = 0; i <= H; i++)
+	for (int i = 0; i <= H; i++)
 	{
 		try
 		{
@@ -97,6 +98,10 @@ int main()
 			{
 				u[i][j] = log(1 + (j * t) * (j * t)) + h * (cos(i * h) - 2 * j * t / (1 + (j * t) * (j * t)));	// u1N 
 																												// 
+				// 
+				// 
+				// 
+				// 
 				// 
 				// 
 				// 
